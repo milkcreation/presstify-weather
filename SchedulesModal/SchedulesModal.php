@@ -1,21 +1,13 @@
 <?php
 
-namespace Weather\SchedulesModal;
+namespace tiFy\Plugins\Weather\SchedulesModal;
 
-use tiFy\App;
+use tiFy\App\Traits\App;
 use tiFy\Core\Control\Control;
 
-class SchedulesModal extends App
+class SchedulesModal 
 {
-    /**
-     * CONSTRUCTEUR
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        parent::__construct();
-    }
+    use TraitsApp;
 
     /**
      * Bouton d'action d'affichage des informations de contact eveole

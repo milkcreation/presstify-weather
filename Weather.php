@@ -1,14 +1,23 @@
 <?php
 
-namespace Weather;
+/**
+ * @name Weather
+ * @desc Extension PresstiFy de gestion de widget météo.
+ * @author Louis Dherent <louis@tigreblanc.fr>
+ * @package presstify/plugins
+ * @namespace \tiFy\Plugins\Weather
+ * @version 0.0.0
+ */
+
+namespace tiFy\Plugins\Weather;
 
 use Cmfcmf\OpenWeatherMap;
 use Cmfcmf\OpenWeatherMap\Exception as OWMException;
 use League\Period\Period;
-use tiFy\App\Set;
-use Weather\SchedulesModal\SchedulesModal;
+use tiFy\App\Plugin;
+use tiFy\Plugins\Weather\SchedulesModal\SchedulesModal;
 
-class Weather extends Set
+class Weather extends Plugin
 {
     /**
      * CONSTRUCTEUR
@@ -20,9 +29,6 @@ class Weather extends Set
         parent::__construct();
 
         $this->appShareContainer('weather.schedules_modal', new SchedulesModal);
-
-        require_once $this->appDirname() . '/vendor/autoload.php';
-        require_once $this->appDirname() . '/Helpers.php';
     }
 
     /**
