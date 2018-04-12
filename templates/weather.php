@@ -37,7 +37,7 @@
             </div>
         </div>
         <div class="SchedulesModal-inner">
-            <?php schedules_modal_trigger(); ?>
+            <?php tify_weather_schedules_modal_trigger(); ?>
         </div>
     </div>
 </section>

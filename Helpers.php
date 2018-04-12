@@ -1,18 +1,15 @@
 <?php
 
-use Weather\Weather;
-use Weather\SchedulesModal\SchedulesModal;
+use tiFy\Plugins\Weather\Weather;
 
 /**
  * Affichage du bouton d'ouverture de la modal
  *
  * @return string
  */
-function schedules_modal_trigger()
+function tify_weather_schedules_modal_trigger()
 {
-    /**
-     * @var \Weather\SchedulesModal\SchedulesModal $SchedulesModal
-     */
+    /** @var \Weather\SchedulesModal\SchedulesModal $SchedulesModal */
     $SchedulesModal = Weather::get('schedules_modal');
 
     return $SchedulesModal->schedulesFormModalTrigger();
@@ -21,9 +18,9 @@ function schedules_modal_trigger()
 /**
  * Affichage de la météo dans le bandeau blanc (contexte responsive)
  *
- * @return string
+ * @return void
  */
-function set_weather_display()
+function tify_weather_display()
 {
     Weather::display();
 }
@@ -31,9 +28,9 @@ function set_weather_display()
 /**
  * Affichage de la météo dans la sidebar (contexte bureau)
  *
- * @return string
+ * @return void
  */
-function set_weather_sidebar_display()
+function tify_weather_sidebar_display()
 {
     Weather::sidebar_display();
 }

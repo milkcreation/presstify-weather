@@ -6,7 +6,7 @@
  * @author Louis Dherent <louis@tigreblanc.fr>
  * @package presstify/plugins
  * @namespace \tiFy\Plugins\Weather
- * @version 0.0.0
+ * @version 1.0.0
  */
 
 namespace tiFy\Plugins\Weather;
@@ -17,10 +17,18 @@ use League\Period\Period;
 use tiFy\App\Plugin;
 use tiFy\Plugins\Weather\SchedulesModal\SchedulesModal;
 
+/**
+ * Class Weather
+ * @package tiFy\Plugins\Weather
+ *
+ * @see https://openweathermap.org/
+ * @see https://github.com/cmfcmf/OpenWeatherMap-PHP-Api
+ * @see https://github.com/erikflowers/weather-icons
+ */
 class Weather extends Plugin
 {
     /**
-     * CONSTRUCTEUR
+     * CONSTRUCTEUR.
      *
      * @return void
      */
@@ -32,20 +40,14 @@ class Weather extends Plugin
     }
 
     /**
-     * Description de la météo
+     * Description de la météo.
      *
      * @return array
      */
     public static function get_weather_info()
     {
-        /**
-         * @see https://openweathermap.org/
-         * @see https://github.com/cmfcmf/OpenWeatherMap-PHP-Api
-         * @see https://github.com/erikflowers/weather-icons
-         */
-
         //Déclaration de la clé d'API
-        $owm = new OpenWeatherMap('64d059b07e5f5f4493c211c784f70a29');
+        $owm = new OpenWeatherMap(self::tFyAppConfig('api_key', ''));
 
         try {
             $weather = $owm->getWeather('Douai', 'metric', 'fr');
@@ -103,9 +105,9 @@ class Weather extends Plugin
     }
 
     /**
-     * Description de la météo
+     * Description de la météo.
      *
-     * @return string
+     * @return void
      */
     public static function display()
     {
@@ -119,6 +121,11 @@ class Weather extends Plugin
         self::tFyAppGetTemplatePart('weather', null, compact('date', 'weather_text', 'weather_icon'));
     }
 
+    /**
+     * Affichage du module dans la sidebar.
+     *
+     * @return void
+     */
     public static function sidebar_display()
     {
         $info = self::get_weather_info();
@@ -135,7 +142,7 @@ class Weather extends Plugin
      *
      * @param string $name Identifant de qualification de la dépendance
      *
-     * @return null|Weather
+     * @return null|object|Weather
      */
     public static function get($name)
     {
@@ -145,5 +152,7 @@ class Weather extends Plugin
         if (self::tFyAppHasContainer($id)) :
             return self::tFyAppGetContainer($id);
         endif;
+
+        return null;
     }
 }
