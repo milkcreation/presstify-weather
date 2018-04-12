@@ -2,7 +2,7 @@
 
 namespace tiFy\Plugins\Weather\SchedulesModal;
 
-use tiFy\App\Traits\App;
+use tiFy\App\Traits\App as TraitsApp;
 use tiFy\Core\Control\Control;
 
 class SchedulesModal 
@@ -12,7 +12,7 @@ class SchedulesModal
     /**
      * Bouton d'action d'affichage des informations de contact eveole
      *
-     * @return string
+     * @return void
      */
     public function schedulesFormModalTrigger()
     {
@@ -34,13 +34,9 @@ class SchedulesModal
     }
 
     /**
-     *
-     * @return string
-     */
-    /**
      * Formulaire de téléchargement des fiches horaires
      *
-     * @return string
+     * @return void
      */
     public function schedulesForm()
     {
