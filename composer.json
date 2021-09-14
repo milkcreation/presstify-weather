@@ -8,20 +8,13 @@
     "wordpress",
     "weather"
   ],
-  "homepage": "https://svn.tigreblanc.fr/presstify-plugins/weather",
-  "time": "2019-11-13",
-  "license": "proprietary",
+  "homepage": "https://github.com/milkcreation/presstify-weather.git",
+  "time": "2021-09-14",
   "authors": [
     {
-      "name": "Louis Dherent",
-      "email": "louis@tigreblanc.fr",
+      "name": "Jordy Manner", 
+      "email": "jordy.manner@milkcreation.fr",
       "role": "Developper"
-    }
-  ],
-  "repositories": [
-    {
-      "type": "composer",
-      "url": "http://composer.tigreblanc.fr/presstify/"
     }
   ],
   "require": {
